@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  rq-dashboard:
+    image: arp19690/rqworker-docker:0.0.1
+    command: rq-dashboard -H rq-server
+    ports:
+      - 9181:9181
+
+  rq-worker:
+    image: arp19690/rqworker-docker:0.0.1
+    command: rq worker -u redis://rq-server:6379 low medium high
+    deploy:
+      replicas: 3
+
+  rq-server:
+    image: redis:alpine
+    ports:
+      - 6379:6379
