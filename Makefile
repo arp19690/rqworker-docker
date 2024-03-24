@@ -1,5 +1,5 @@
 TAG=0.0.1
-IMAGE=arp19690/rqworker-docker
+IMAGE=arpitm19/rqworker-docker
 STACK=rq-stack
 
 image:
